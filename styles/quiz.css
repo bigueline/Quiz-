@@ -162,3 +162,17 @@ body {
     content: "✕ Incorreta";
     font-weight: 700;
 }
+
+/* Modificação - visibilidade durante a interação */
+.quiz__scoreboard--hidden {
+    display: none;
+}
+
+.quiz__btn--hidden,
+.quiz__question--hidden {
+    display: none;
+}
+
+.quiz__question--visible {
+    display: flex;
+}

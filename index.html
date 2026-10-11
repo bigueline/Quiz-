@@ -10,30 +10,33 @@
     <main class="quiz">
        <h1 class="quiz__title">Quiz</h1>
          <p class="quiz__intro">Teste seus conhecimentos com nosso quiz.</p>
-       <div class="quiz__score">
+         
+       <div class="quiz__scoreboard quiz__scoreboard--hidden">
           <p class="quiz__score-label"> Pontuação: <span id="score" class="quiz__score-value">0</span></p>
       </div>
+
       <button id="start" class="quiz__btn quiz__btn--primary">
          Iniciar Quiz
       </button>
-    <div id="question-1" class="quiz__question">
+
+    <div id="question-1" class="quiz__question quiz__question--hidden">
       <p class="quiz__question-number">Questão 1</p>
       <P class="quiz__question-text">Qual é a capital do Brasil?</P>
-      <button class="quiz__option">
+      <button disabled class="quiz__option quiz__option--incorrect">
         <p class="quiz__option-text">São Paulo</p>
       </button>
-      <button class="quiz__option">
+      <button disabled class="quiz__option quiz__option--incorrect">
         <p class="quiz__option-text">Rio de Janeiro</p>
       </button>
-      <button class="quiz__option">
+      <button disabled class="quiz__option quiz__option--correct">
         <p class="quiz__option-text">Brasília</p>
       </button>
-      <button class="quiz__option">
+      <button disabled class="quiz__option quiz__option--incorrect">
         <p class="quiz__option-text">Belo Horizonte</p>
       </button>
     </div>
 
-      <div id="question-2" class="quiz__question">
+      <div id="question-2" class="quiz__question quiz__question--hidden">
         <p class="quiz__question-number">Questão 2</p>
         <P class="quiz__question-text">Qual é o menor estado do Brasil?</P>
        <button class="quiz__option">
@@ -50,7 +53,7 @@
        </button>
       </div>
 
-     <div id="question-3" class="quiz__question">
+     <div id="question-3" class="quiz__question quiz__question--hidden">
        <p class="quiz__question-number">Questão 3</p>
        <P class="quiz__question-text">Qual é o maior estado do Brasil?</P>
        <button class="quiz__option">
@@ -67,7 +70,7 @@
        </button>
      </div>
 
-      <button class="quiz__btn quiz__btn--primary" id="finish-quiz" type="button"
+      <button class="quiz__btn quiz__btn--primary quiz__btn--hidden"  id="finish-quiz" type="button"
        >Finalizar Quiz
       </button>
         
