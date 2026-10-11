@@ -1,10 +1,7 @@
-console.log("Quiz iniciando...");
+const question1 = document.getElementById('question-1');
 
-// O HTML usa id="start"; buscar "start-quiz" retornava null.
-// O script usa defer, então o botão já existe quando esta linha executa.
-const startButton = document.getElementById("start");
+console.log("question1", question1);
+console.log("Classes CSS da questão 1:", question1.classList);
 
-console.log('texto do botão', startButton.textContent);
-
-// Reutiliza a variável declarada acima; startQuizButton não estava definida.
-startButton.textContent = "Iniciando Quiz...";
+question1.classList.remove('quiz__question--hidden');
+console.log('questão 1: classes css', question1.classList);
