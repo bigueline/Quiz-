@@ -137,14 +137,16 @@ body {
     box-shadow: none;
 }
 
-/* Estados após disabled: mantêm as cores e a borda tracejada quando desabilitados. */
-.quiz__option.quiz__option--correct {
+/* Resultados com disabled têm prioridade nas cores; preservam a borda tracejada. */
+.quiz__option.quiz__option--correct,
+.quiz__option.quiz__option--correct:disabled {
     border-color: #8ce0ad;
     background: #143e2b;
     color: #effff4;
 }
 
-.quiz__option.quiz__option--incorrect {
+.quiz__option.quiz__option--incorrect,
+.quiz__option.quiz__option--incorrect:disabled {
     border-color: #ffadad;
     background: #54232b;
     color: #fff1f1;
