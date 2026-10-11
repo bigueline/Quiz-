@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+    <link rel="stylesheet" href="./styles/quiz.css">
 </head>
 <body>
-    <main>
-       <h1>Quiz</h1>
-         <p>Teste seus conhecimentos com nosso quiz.</p>
-       <div> 
-          <p> Pontuação: <span id="score">0</span></p>
+    <main class="quiz">
+       <h1 class="quiz__title">Quiz</h1>
+         <p class="quiz__intro">Teste seus conhecimentos com nosso quiz.</p>
+       <div class="quiz__score">
+          <p class="quiz__score-label"> Pontuação: <span id="score" class="quiz__score-value">0</span></p>
       </div>
-      <button id="start"> 
+      <button id="start" class="quiz__start">
          Iniciar Quiz
       </button>
-    <div id="question-1"> 
-      <p>Questão 1</p>
-      <P>Qual é a capital do Brasil?</P>
-      <button>
-        <p>São Paulo</p>
+    <div id="question-1" class="quiz__question">
+      <p class="quiz__question-number">Questão 1</p>
+      <P class="quiz__question-text">Qual é a capital do Brasil?</P>
+      <button class="quiz__option">
+        <p class="quiz__option-text">São Paulo</p>
       </button>
-      <button>
-        <p>Rio de Janeiro</p>
+      <button class="quiz__option">
+        <p class="quiz__option-text">Rio de Janeiro</p>
       </button>
-      <button>
-        <p>Brasília</p>
+      <button class="quiz__option">
+        <p class="quiz__option-text">Brasília</p>
       </button>
-      <button>
-        <p>Belo Horizonte</p>
+      <button class="quiz__option">
+        <p class="quiz__option-text">Belo Horizonte</p>
       </button>
     </div>
     </main>
