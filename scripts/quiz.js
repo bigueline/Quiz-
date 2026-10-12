@@ -1,81 +1,52 @@
 const startQuizButton = document.querySelector('#start');
 const finishQuizButton = document.querySelector('#finish-quiz');
+const scoreBoard = document.querySelector('.quiz__scoreboard');
+const score = document.querySelector('#score');
 
 const question1 = document.querySelector('#question-1');
 const question2 = document.querySelector('#question-2');
 const question3 = document.querySelector('#question-3');
+const questions = [question1, question2, question3];
+
+let totalScore = 0;
+// Cada pergunta pode ser contabilizada apenas uma vez.
+const answeredQuestions = new Set();
 
 startQuizButton.addEventListener('click', () => {
-   console.log('quiz iniciado');
-
    startQuizButton.classList.add('quiz__btn--hidden');
-
    question1.classList.remove('quiz__question--hidden');
 });
 
-question1.addEventListener('submit', (event) => {
-   event.preventDefault();
-   console.log('questão 1 respondida');
+questions.forEach((question, index) => {
+   question.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const option = event.submitter;
+      if (answeredQuestions.has(question) || !option) return;
+      answeredQuestions.add(question);
 
-   const isCorrect = event.submitter.hasAttribute('data-correct')
-   console.log('marcou a certa?', isCorrect)
+      const isCorrect = option.hasAttribute('data-correct');
+      option.classList.add(isCorrect ? 'quiz__option--correct' : 'quiz__option--incorrect');
 
-   if (isCorrect) {
-      event.submitter.classList.add('quiz__option--correct')
-   } else {
-      event.submitter.classList.add('quiz__option--incorrect')
-   }
+      // Acertos valem um ponto; erros mant?m o total.
+      if (isCorrect) totalScore += 10;
+      score.textContent = totalScore;
 
- question1.querySelectorAll('.quiz__option').forEach((option) => {
-    option.setAttribute('disabled', true)
- })
+      question.querySelectorAll('.quiz__option').forEach((answer) => {
+         answer.setAttribute('disabled', true);
+      });
 
- question2.classList.remove('quiz__question--hidden');
-
-});
-
-question2.addEventListener('submit', (event) => {
-   event.preventDefault();
-   console.log('questão 2 respondida');
-
-    const isCorrect = event.submitter.hasAttribute('data-correct')
-   console.log('marcou a certa?', isCorrect)
-
-    if (isCorrect) {
-      event.submitter.classList.add('quiz__option--correct')
-   } else {
-      event.submitter.classList.add('quiz__option--incorrect')
-   }
-
- question2.querySelectorAll('.quiz__option').forEach((option) => {
-    option.setAttribute('disabled', true)
- })
-
- question3.classList.remove('quiz__question--hidden');
-
-});
-
-question3.addEventListener('submit', (event) => {
-   event.preventDefault();
-   console.log('questão 3 respondida');
-
-    const isCorrect = event.submitter.hasAttribute('data-correct')
-   console.log('marcou a certa?', isCorrect)
-
-    if (isCorrect) {
-      event.submitter.classList.add('quiz__option--correct')
-   } else {
-      event.submitter.classList.add('quiz__option--incorrect')
-   }
-
- question3.querySelectorAll('.quiz__option').forEach((option) => {
-    option.setAttribute('disabled', true)
- })
-
- finishQuizButton.classList.remove('quiz__btn--hidden');
-
+      const nextQuestion = questions[index + 1];
+      if (nextQuestion) {
+         nextQuestion.classList.remove('quiz__question--hidden');
+      } else {
+         finishQuizButton.classList.remove('quiz__btn--hidden');
+      }
+   });
 });
 
 finishQuizButton.addEventListener('click', () => {
-  console.log('Quiz finalizado')
-})
+   if (answeredQuestions.size !== questions.length) return;
+   // Mostra o resultado ao finalizar as tr?s perguntas.
+   score.textContent = totalScore;
+   scoreBoard.classList.remove('quiz__scoreboard--hidden');
+});

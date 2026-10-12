@@ -7,14 +7,10 @@
     <link rel="stylesheet" href="./styles/quiz.css">
 </head>
 <body>
-    <main class="quiz">
-       <h1 class="quiz__title">Quiz</h1>
+     <main class="quiz">
+         <h1 class="quiz__title">Quiz</h1>
          <p class="quiz__intro">Teste seus conhecimentos com nosso quiz.</p>
-
-       <div class="quiz__scoreboard quiz__scoreboard--hidden">
-          <p class="quiz__score-label"> Pontuação: <span id="score" class="quiz__score-value">0</span></p>
-      </div>
-
+     
       <button id="start" class="quiz__btn quiz__btn--primary" type="button">
          Iniciar Quiz
       </button>
@@ -69,6 +65,10 @@
          <p class="quiz__option-text">Belo Horizonte</p>
        </button>
      </form>
+
+     <div class="quiz__scoreboard quiz__scoreboard--hidden">
+          <p class="quiz__score-label"> Pontuação: <span id="score" class="quiz__score-value">0</span></p>
+     </div>
 
       <button class="quiz__btn quiz__btn--primary quiz__btn--hidden"  id="finish-quiz" type="button"
        >Finalizar Quiz
