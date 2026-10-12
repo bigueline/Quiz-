@@ -17,6 +17,14 @@ question1.addEventListener('submit', (event) => {
    event.preventDefault();
    console.log('questão 1 respondida');
 
+   const isCorrect = event.submitter.hasAttribute('data-correct')
+   console.log('marcou a certa?', isCorrect)
+
+   if (isCorrect) {
+      event.submitter.classList.add('quiz__option--correct')
+   } else {
+      event.submitter.classList.add('quiz__option--incorrect')
+   }
 
  question1.querySelectorAll('.quiz__option').forEach((option) => {
     option.setAttribute('disabled', true)
@@ -30,6 +38,14 @@ question2.addEventListener('submit', (event) => {
    event.preventDefault();
    console.log('questão 2 respondida');
 
+    const isCorrect = event.submitter.hasAttribute('data-correct')
+   console.log('marcou a certa?', isCorrect)
+
+    if (isCorrect) {
+      event.submitter.classList.add('quiz__option--correct')
+   } else {
+      event.submitter.classList.add('quiz__option--incorrect')
+   }
 
  question2.querySelectorAll('.quiz__option').forEach((option) => {
     option.setAttribute('disabled', true)
@@ -43,6 +59,14 @@ question3.addEventListener('submit', (event) => {
    event.preventDefault();
    console.log('questão 3 respondida');
 
+    const isCorrect = event.submitter.hasAttribute('data-correct')
+   console.log('marcou a certa?', isCorrect)
+
+    if (isCorrect) {
+      event.submitter.classList.add('quiz__option--correct')
+   } else {
+      event.submitter.classList.add('quiz__option--incorrect')
+   }
 
  question3.querySelectorAll('.quiz__option').forEach((option) => {
     option.setAttribute('disabled', true)
