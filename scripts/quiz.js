@@ -14,6 +14,7 @@ const answeredQuestions = new Set();
 
 startQuizButton.addEventListener('click', () => {
    startQuizButton.classList.add('quiz__btn--hidden');
+   scoreBoard.classList.remove('quiz__scoreboard--hidden');
    question1.classList.remove('quiz__question--hidden');
 });
 
@@ -27,7 +28,7 @@ questions.forEach((question, index) => {
       const isCorrect = option.hasAttribute('data-correct');
       option.classList.add(isCorrect ? 'quiz__option--correct' : 'quiz__option--incorrect');
 
-      // Acertos valem um ponto; erros mant?m o total.
+      // Cada acerto soma 10 pontos; erros mantêm o total.
       if (isCorrect) totalScore += 10;
       score.textContent = totalScore;
 
@@ -46,7 +47,9 @@ questions.forEach((question, index) => {
 
 finishQuizButton.addEventListener('click', () => {
    if (answeredQuestions.size !== questions.length) return;
-   // Mostra o resultado ao finalizar as tr?s perguntas.
-   score.textContent = totalScore;
-   scoreBoard.classList.remove('quiz__scoreboard--hidden');
+   // Recarrega a página para voltar ao estado inicial.
+   window.location.reload();
 });
+
+
+
